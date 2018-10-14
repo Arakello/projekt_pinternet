@@ -8,5 +8,5 @@ Shrine.storages = {
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays
-Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file
-Shrine.plugin :rack_file # for non-Rails apps
+Shrine.plugin :logging, logger: Rails.logger # Automatically logs processing, storing and deleting, with a configurable format.
+
