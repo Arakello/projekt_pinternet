@@ -10,6 +10,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
+        MakeSketch.call(@image)
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
