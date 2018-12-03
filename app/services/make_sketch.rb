@@ -7,8 +7,7 @@ class MakeSketch
   end
 
   def call
-    img = Magick::Image.read("public#{@image.image_url}").first
-    img = img.charcoal(100,0.25)
-    img.write("public#{@image.image_url}")
+    img="public"+@image.image_url
+    system("sh skrypt.sh #{img}")
   end
 end
