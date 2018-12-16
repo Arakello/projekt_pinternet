@@ -1,2 +1,2 @@
-- if @picture.picture.present?
-  = image_tag @picture.picture_url
+- if @picture.image.present?
+  = image_tag @picture.image_url(:transformed)

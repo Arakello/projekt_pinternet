@@ -1,3 +1,3 @@
 class Picture < ApplicationRecord
-  include PictureUploader[:picture]
+  include PictureUploader[:image]
 end

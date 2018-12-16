@@ -61,7 +61,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rmagick'
+  gem "mini_magick"
+  gem "image_processing"
 end
 
 group :test do

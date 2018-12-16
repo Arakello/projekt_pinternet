@@ -7,10 +7,8 @@ class PicturesController < ApplicationController
   
   def create
     @picture = Picture.new(post_params)
-
     respond_to do |format|
       if @picture.save
-        MakeSketch.call(@picture)
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
@@ -35,7 +33,7 @@ class PicturesController < ApplicationController
 private
    
   def post_params
-    params.require(:picture).permit(:picture)
+    params.require(:picture).permit(:image)
   end
   
   def set_picture
