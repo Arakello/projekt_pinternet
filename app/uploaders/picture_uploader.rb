@@ -18,8 +18,6 @@ class PictureUploader < Shrine
    validate_extension_inclusion %w[jpg jpeg png gif]
   end
  
-
-
   process(:store) do |io|
     versions = { original: io }
     io.download do |original|
@@ -27,6 +25,5 @@ class PictureUploader < Shrine
       versions[:thumbnail] = processor.resize_to_limit!(300,300)
       versions[:transformed] = processor.colorspace! "Gray"
     end
-    versions
   end
 end
