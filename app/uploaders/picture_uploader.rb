@@ -9,8 +9,6 @@ class PictureUploader < Shrine
   plugin :processing
   plugin :versions
   plugin :determine_mime_type
-  plugin :delete_promoted
-  plugin :delete_raw
   plugin :pretty_location
 
   Attacher.validate do 
@@ -25,5 +23,6 @@ class PictureUploader < Shrine
       versions[:thumbnail] = processor.resize_to_limit!(300,300)
       versions[:transformed] = processor.colorspace! "Gray"
     end
+    versions
   end
 end
