@@ -1,2 +1,3 @@
 - if @picture.image.present?
   = image_tag @picture.image_url(:transformed)
+  = button_to 'Delete', picture_path, class: 'btn btn-danger', method: 'delete'

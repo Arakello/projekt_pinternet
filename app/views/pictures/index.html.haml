@@ -1,0 +1,4 @@
+%h1 Pictures Catalog
+%ul
+  -@pictures.each do |pic|
+    =link_to image_tag(pic.image_url(:thumbnail),alt: pic.id), pic

@@ -22,7 +22,10 @@ class PicturesController < ApplicationController
   def show
   end
 
-
+  def index
+    @pictures = Picture.all
+  end
+  
   def destroy
     @picture.destroy
     respond_to do |format|
