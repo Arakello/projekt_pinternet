@@ -7,10 +7,9 @@ class MakeSketch
 
   def call
     MiniMagick::Tool::Magick.new do |magick|
-        magick << @original
-
-        magick.colorspace("gray")
-        magick << "\("
+      magick << @original
+      magick.colorspace("gray")
+      magick.stack do |stack|
         magick.clone.+
         magick.tile("data/pencil_tile.gif")
         magick.draw("color 0,0 reset")
@@ -18,11 +17,10 @@ class MakeSketch
         magick.swap.+
         magick.compose("color_dodge")
         magick.composite
-        magick << "\)"
-        magick.fx("u*.2+v*.8")
-        magick << @original 
-        magick.call
+      end
+      magick.fx("u*.2+v*.8")
+      magick << @original 
+      magick.call
     end
-
   end
 end
